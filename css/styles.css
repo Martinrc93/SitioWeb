@@ -1,0 +1,237 @@
+/* Reset básico y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-image:
+        linear-gradient(to bottom, rgba(139, 0, 0, 0) 0%, rgba(64, 0, 0, 1) 100%), /* Fades to very dark red */
+        repeating-linear-gradient(to right, #C0392B, #C0392B 20px, #A93226 20px, #A93226 40px); /* Vertical stripes */
+    background-size: 100% 100%, auto;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed;
+    color: #f4f4f4; /* Light color for contrast */
+    padding-top: 80px; /* Compensación para el header fijo */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Cabecera */
+header {
+    background-color: #400000; /* Mismo color que el footer */
+    border-bottom: 1px solid #200000; /* Borde más oscuro */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.header-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%; /* Padding del contenido */
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav {
+    display: flex; /* Por defecto para escritorio */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Cambiado a blanco */
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: red;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Contenido Principal */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.content-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.column-text,
+.column-images {
+    flex: 1;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.column-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.column-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.column-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Pie de página */
+footer {
+    background-color: #400000; /* Color muy oscuro del background general */
+    margin-top: 40px;
+    border-top: 1px solid #200000; /* Borde más oscuro */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content wrapper horizontally */
+}
+
+.footer-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    color: #f4f4f4; /* Color de texto claro para el footer */
+}
+
+.social-icons a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.social-icons a i {
+    font-size: 1.5rem; /* Un poco más grandes */
+    color: red;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a i:hover {
+    transform: scale(1.2);
+    color: #FF0000;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 1001; /* Asegura que esté por encima del menú */
+    }
+
+    .hamburger img {
+        height: 40px;
+    }
+
+    .hamburger .icon-close {
+        display: none;
+    }
+
+    body.nav-active .hamburger .icon-open {
+        display: none;
+    }
+
+    body.nav-active .hamburger .icon-close {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #800020; /* Color borgoña */
+        border-top: 1px solid #600018; /* Borde borgoña más oscuro */
+        z-index: 1000; /* Asegura que el menú esté sobre el contenido */
+    }
+
+    body.nav-active header nav {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid transparent; /* Cambiado a transparente */
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 15px;
+    }
+
+    .content-columns, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content-columns {
+        gap: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 15px; /* Aumenta la separación horizontal */
+    }
+
+    .social-icons a i {
+        font-size: 1.8rem; /* 20% más grandes */
+    }
+}
