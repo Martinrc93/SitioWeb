@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Amazing Digital Circus</title>
+    <title>The Amazing Digital Circus - Contacto</title>
     <link rel="stylesheet" href="css/normalizer.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/icon.webp" type="image/x-icon">
@@ -23,32 +23,39 @@
             </button>
             <nav id="main-nav">
                 <ul>
-                    <li ><a class="selecionado" href="index.html">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="temporadas.html">Temporadas</a></li>
                     <li><a href="galeria.html">Galería</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a class="selecionado" href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <section class="hero">
-            <img src="img/portada.jpg" alt="Escena de The Amazing Digital Circus">
-            <h1>The Amazing Digital Circus</h1>
-            <p>Sumérgete en el mundo vibrante y caótico del circo digital. Acompaña a <strong>Pomni</strong> y sus amigos en una aventura que desafía la realidad y la cordura. Este sitio es tu portal para explorar todo sobre esta increíble serie.</p>
-        </section>
+        <h3>Contacto</h3>
+        <div class="contact-container">
+            <div class="contact-column contact-image-column">
+                <img src="img/contacto-1.jpg" alt="Imagen decorativa 1">
+            </div>
+            <div class="contact-column">
+                <form action="#" method="post" class="contact-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
 
-        <section class="content-columns">
-            <div class="column-text">
-                <h2>Sobre la Serie</h2>
-                <p><strong>The Amazing Digital Circus</strong> es una serie web animada que sigue a un grupo de humanos atrapados en un universo digital con temática de circo. La protagonista, Pomni, debe aprender a navegar en este nuevo y extraño mundo gobernado por la <strong>inteligencia artificial Caine</strong>, mientras busca una salida junto a sus nuevos compañeros.</p>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" class="mensaje-area" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
-            <div class="column-images">
-                <img src="img/imagen2.jpg" alt="Personaje 2">
-                <img src="img/imagen3.webp" alt="Personaje 3">
+            <div class="contact-column contact-image-column">
+                <img src="img/Contacto-2.jpg" alt="Imagen decorativa 2">
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>

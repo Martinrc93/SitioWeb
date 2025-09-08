@@ -4,6 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    height: 100%;
+}
 
 body {
     font-family: sans-serif;
@@ -16,13 +19,23 @@ body {
     background-attachment: fixed;
     color: #f4f4f4; /* Light color for contrast */
     padding-top: 80px; /* Compensación para el header fijo */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 0 0;
+}
+.container h3{
+    font-family: 'Luckiest Guy';
+    font-size: 50px;
+    text-align: center;
+    -webkit-text-stroke: 2px #400000;
 }
 
 /* Cabecera */
@@ -65,19 +78,42 @@ header nav ul li a {
     text-decoration: none;
     color: #FFFFFF; /* Cambiado a blanco */
     font-weight: bold;
+    padding: 5px;
+    border-radius: 25px;
 }
 
 header nav ul li a:hover {
     color: red;
+    transition: color 0.7s ease;
 }
 
 .hamburger {
     display: none;
-    font-size: 1.5rem;
+    position: relative;
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
-    color: #333;
     cursor: pointer;
+}
+
+.hamburger img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
+
+.selecionado {
+    font-weight: bold;
+    color: white;
+    background-color: red;
+}
+.selecionado:hover{
+    color: #0400ff;
+    background-color: white;
+    transition: 0.7s ease;
 }
 
 /* Contenido Principal */
@@ -88,27 +124,27 @@ header nav ul li a:hover {
 
 .hero img {
     max-width: 100%;
-    height: auto;
+    /*height: auto;*/
+    max-height: 85vh;
     margin-bottom: 20px;
     border-radius: 8px;
 }
 
-.hero h1 {
-    margin-bottom: 10px;
-    font-size: 2.5em;
+.hero p {
+    text-align: left;
 }
 
 .content-columns {
     display: flex;
     gap: 40px;
+    background-color: #4b0202a9;
+    padding: 20px;
+    border-radius: 25px;
 }
 
-.column-text,
-.column-images {
-    flex: 1;
-    padding: 20px;
-    background-color: transparent;
-    border-radius: 8px;
+.column-text {
+    text-align: left;
+    
 }
 
 .column-images {
@@ -125,27 +161,34 @@ header nav ul li a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-.column-images img:hover {
-    transform: scale(1.05);
+/*.column-images img:hover {
     box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.6);
 }
-
+*/
 /* Pie de página */
 footer {
     background-color: #400000; /* Color muy oscuro del background general */
-    margin-top: 40px;
-    border-top: 1px solid #200000; /* Borde más oscuro */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content wrapper horizontally */
+    margin-top: auto;
+    padding: 20px 0;
+    max-height: 50vh;
+    text-align: center;
 }
 
 .footer-content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    color: #f4f4f4; /* Color de texto claro para el footer */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.legals {
+    text-align: left;
+}
+
+.social-icons {
+    text-align: right;
 }
 
 .social-icons a {
@@ -154,15 +197,79 @@ footer {
     color: #333;
 }
 
-.social-icons a i {
+.social-icons a img {
     font-size: 1.5rem; /* Un poco más grandes */
     color: red;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    width: 2em;
+    border-radius: 70%;
 }
 
-.social-icons a i:hover {
+.social-icons a img:hover {
     transform: scale(1.2);
     color: #FF0000;
+}
+
+/* Estilos para el formulario de contacto */
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0400ff3a;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.contact-column {
+    flex: 1;
+    text-align: center;
+}
+
+.contact-column img {
+    width: auto;
+    height: 80vh;
+    max-width: 50vw;
+    border-radius: 8px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #00000096;
+    padding: 5px;
+    border-radius: 25px;
+    margin: auto;
+}
+.contact-form label {
+    font-weight: bold;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 750px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    resize: none;
+}
+.contact-form button {
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.678);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 50%;
+    margin: auto;
+}
+.mensaje-area{
+    height: 500px;
+}
+.contact-form button:hover {
+    background-color: #ffffff;
+    color: red;
+    transition: 0.5s ease;
 }
 
 /* Diseño Responsivo */
@@ -170,10 +277,6 @@ footer {
     .hamburger {
         display: block;
         z-index: 1001; /* Asegura que esté por encima del menú */
-    }
-
-    .hamburger img {
-        height: 40px;
     }
 
     .hamburger .icon-close {
@@ -218,9 +321,22 @@ footer {
         padding: 15px;
     }
 
-    .content-columns, footer {
+    .content-columns {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .legals, .social-icons {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 15px;
     }
 
     .content-columns {
@@ -234,4 +350,19 @@ footer {
     .social-icons a i {
         font-size: 1.8rem; /* 20% más grandes */
     }
+
+    .contact-container {
+        width: 96%;
+    }
+
+    .contact-image-column {
+        display: none;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+    }
 }
+
+
