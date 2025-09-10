@@ -18,7 +18,6 @@ body {
     background-repeat: no-repeat, repeat;
     background-attachment: fixed;
     color: #f4f4f4; /* Light color for contrast */
-    padding-top: 80px; /* Compensación para el header fijo */
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
@@ -31,7 +30,11 @@ body {
     margin: 0 auto;
     padding: 0 0;
 }
-.container h3{
+
+main.container {
+    padding-top: 100px;
+}
+.container h1, .container h3{
     font-family: 'Luckiest Guy';
     font-size: 50px;
     text-align: center;
@@ -115,19 +118,27 @@ header nav ul li a:hover {
     background-color: white;
     transition: 0.7s ease;
 }
+/*
+ul li ul{
+  display: none; 
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: #444;
+  min-width: 200px;
+}
+  */
 
 /* Contenido Principal */
 .hero {
     text-align: center;
-    margin-bottom: 40px;
+    padding-top: 100px;
 }
 
 .hero img {
     max-width: 100%;
-    /*height: auto;*/
     max-height: 85vh;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .hero p {
@@ -151,7 +162,7 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
+    gap: 10px;
 }
 
 .column-images img {
@@ -212,9 +223,12 @@ footer {
 
 /* Estilos para el formulario de contacto */
 .contact-container {
+    height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0px;
+    background-image: url(/img/pomni.bmp);
     background-color: #0400ff3a;
     padding: 10px;
     margin: 10px;
@@ -226,12 +240,17 @@ footer {
     text-align: center;
 }
 
+.contact-image-column {
+    display: flex;
+}
+/*
 .contact-column img {
     width: auto;
-    height: 80vh;
+    height: 60vh;
     max-width: 50vw;
     border-radius: 8px;
 }
+    */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -240,13 +259,13 @@ footer {
     padding: 5px;
     border-radius: 25px;
     margin: auto;
+    height: 450px;
 }
 .contact-form label {
     font-weight: bold;
 }
 .contact-form input,
 .contact-form textarea {
-    width: 750px;
     padding: 10px;
     border: 1px solid #ffffff;
     border-radius: 5px;
@@ -264,14 +283,43 @@ footer {
     margin: auto;
 }
 .mensaje-area{
-    height: 500px;
+    height: 150px;
 }
 .contact-form button:hover {
     background-color: #ffffff;
     color: red;
     transition: 0.5s ease;
 }
+/* Diseño Temporadas*/
 
+.container-temporadas {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+.container-temporadas h1{
+    font-family: 'Luckiest Guy';
+    font-size: 50px;
+    color: #ffee00;
+    text-align: center;
+    -webkit-text-stroke: #600000 1px;
+    margin: 0;
+
+}
+.item{
+    width: auto;
+    border:1px solid #400000;
+    margin: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
 /* Diseño Responsivo */
 @media (max-width: 768px) {
     .hamburger {
@@ -297,9 +345,9 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #800020; /* Color borgoña */
-        border-top: 1px solid #600018; /* Borde borgoña más oscuro */
-        z-index: 1000; /* Asegura que el menú esté sobre el contenido */
+        background-color: #800020; 
+        border-top: 1px solid #600018; 
+        z-index: 1000;
     }
 
     body.nav-active header nav {
@@ -363,6 +411,68 @@ footer {
     .contact-form textarea {
         width: 100%;
     }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown > a {
+        width: 100%;
+    }
+
+    .dropdown ul {
+        display: none;
+        position: static;
+        width: 75%;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+
+    .dropdown.submenu-active ul {
+        display: block;
+    }
+
+    .dropdown ul li a {
+        padding: 10px;
+    }
 }
 
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
 
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #400000;
+    border: 1px solid #200000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+
+.dropdown:hover ul {
+    display: block;
+}
+
+.dropdown ul li {
+    margin: 0;
+}
+
+.dropdown ul li a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+    background-color: transparent;
+}
