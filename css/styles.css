@@ -143,6 +143,8 @@ ul li ul{
 
 .hero p {
     text-align: left;
+    max-width: 85%;
+    margin: auto;
 }
 
 .content-columns {
