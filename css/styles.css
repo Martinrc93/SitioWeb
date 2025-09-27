@@ -3,11 +3,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Luckiest Guy','san-serif';
+    /*-webkit-text-stroke: 1px #000000;*/
+    text-shadow: 1px 1px 3px black; /* Sombra para mejorar legibilidad */
 }
 html{
     height: 100%;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
+#resaltar{
+    color: #ffffff;
+}
 body {
     font-family: sans-serif;
     line-height: 1.6;
@@ -24,45 +36,51 @@ body {
     margin: 0;
 }
 
-.container {
-    width: 90%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 0;
+main{
+    padding-top: 10vh;
 }
 
-main.container {
-    padding-top: 100px;
+
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+    padding: auto;
 }
-.container h1, .container h3{
+
+
+.container h1{  
+    text-align: center;
+    margin: auto;
+}
+#titulo{
+    color: #FF0000;
+    -webkit-text-stroke: 1px #ffd900;
     font-family: 'Luckiest Guy';
     font-size: 50px;
-    text-align: center;
-    -webkit-text-stroke: 2px #400000;
 }
 
 /* Cabecera */
 header {
-    background-color: #400000; /* Mismo color que el footer */
-    border-bottom: 1px solid #200000; /* Borde más oscuro */
-    position: fixed; /* Fixed position */
+    background-color: #400000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it's above other content */
 }
 
 .header-content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%; /* Padding del contenido */
+    height: 100%;
 }
 
-header .logo img {
-    height: 50px;
+header .logo a img {
+    height: 100px;
 }
-
 header nav {
     display: flex; /* Por defecto para escritorio */
 }
@@ -73,21 +91,19 @@ header nav ul {
     margin: 0;
 }
 
-header nav ul li {
-    margin-left: 20px;
-}
-
 header nav ul li a {
     text-decoration: none;
     color: #FFFFFF; /* Cambiado a blanco */
-    font-weight: bold;
     padding: 5px;
     border-radius: 25px;
+    font-size: larger;
 }
 
 header nav ul li a:hover {
     color: red;
-    transition: color 0.7s ease;
+    -webkit-text-stroke: 1px #eeff00;
+    transition: 0.6s ease-in-out;
+    
 }
 
 .hamburger {
@@ -114,9 +130,10 @@ header nav ul li a:hover {
     background-color: red;
 }
 .selecionado:hover{
-    color: #0400ff;
-    background-color: white;
-    transition: 0.7s ease;
+    color: #000000;
+    background-color: rgb(255, 0, 0);
+    -webkit-text-stroke: 0px #000000;
+    transition: 0.7s ease-in-out;
 }
 /*
 ul li ul{
@@ -131,14 +148,29 @@ ul li ul{
 
 /* Contenido Principal */
 .hero {
+    position: relative;
     text-align: center;
-    padding-top: 100px;
 }
 
+/* .hero-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    z-index: 1;
+} */
+
+/* .hero-logo img {
+    height: 85vh;
+    border: 10px solid white;
+    border-radius: 60%;
+} */
+
 .hero img {
-    max-width: 100%;
+    margin: auto ;
     max-height: 85vh;
-    border-radius: 15px;
+    max-width: 100%;
+    display: block;
 }
 
 .hero p {
@@ -225,72 +257,64 @@ footer {
 
 /* Estilos para el formulario de contacto */
 .contact-container {
-    height: 60vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-    background-image: url(/img/pomni.bmp);
-    background-color: #0400ff3a;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 25px;
+    gap: 20px;
+    background-color: #00000036;
+    border-radius: 15px;
+    padding: 1%;
+    width: 1300px;
+}
+.contact-map {
+    flex-shrink: 0;
 }
 
 .contact-column {
-    flex: 1;
+    flex-grow: 1;
     text-align: center;
 }
 
-.contact-image-column {
-    display: flex;
-}
-/*
-.contact-column img {
-    width: auto;
-    height: 60vh;
-    max-width: 50vw;
-    border-radius: 8px;
-}
-    */
 .contact-form {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     background-color: #00000096;
-    padding: 5px;
     border-radius: 25px;
     margin: auto;
-    height: 450px;
+    justify-content: center;
+    align-items: center;
 }
-.contact-form label {
-    font-weight: bold;
+
+.contact-form input{
+    padding: 10px;
+    border-radius: 5px;
+    resize: auto;
+    width: 80%;
+    height: 2vh;
 }
-.contact-form input,
 .contact-form textarea {
     padding: 10px;
-    border: 1px solid #ffffff;
+    border: 1px solid #2c2c2c;
     border-radius: 5px;
     resize: none;
+    width: 95%;
 }
 .contact-form button {
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.678);
+    background-color: rgb(255, 0, 0);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    width: 50%;
-    margin: auto;
+    width: auto;
+    padding: 1px 10px;
+    margin: 10px;
 }
 .mensaje-area{
-    height: 150px;
+    height: 65%;
 }
 .contact-form button:hover {
     background-color: #ffffff;
     color: red;
-    transition: 0.5s ease;
+    transition: 0.7s ease-in-out;
 }
 /* Diseño Temporadas*/
 
@@ -302,26 +326,93 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 100px;
-}
-.container-temporadas h1{
-    font-family: 'Luckiest Guy';
-    font-size: 50px;
-    color: #ffee00;
-    text-align: center;
-    -webkit-text-stroke: #600000 1px;
-    margin: 0;
-
 }
 .item{
-    width: auto;
-    border:1px solid #400000;
-    margin: 5vh;
+    padding: 10px;
+    margin-bottom: 5vh;
+    border:3px solid #400000;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap-reverse;
+    flex-direction:row;
 }
+.item iframe{
+    margin-right: 1vw;
+    max-height: 90%;
+}
+.item h3{
+    text-align: center;
+    letter-spacing: 0.1vw;
+}
+.item p{
+    /*letter-spacing: 0.1vw;*/
+}
+/* Sobre la serie */
+.cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.divisor{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    gap: 1vw; 
+}
+.divisor div a:hover{
+    color: red;
+    transition: 0.5s ease-in-out;
+}
+
+.divisor div p{
+    text-align: center;
+}
+.divisor div img{
+    width: 400px;
+    height: auto; 
+}
+.divisor div h2 {
+    transform: translate(0%,-100%);
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+/*PERSONAJES*/
+
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.card-personajes {
+    text-align: center;
+    background-color: #4b0202a9;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card-personajes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cont-personajes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* Diseño Responsivo */
 @media (max-width: 768px) {
     .hamburger {
@@ -373,7 +464,7 @@ footer {
 
     .content-columns {
         flex-direction: column;
-        text-align: center;
+        text-align: center;   
     }
 
     .footer-content-wrapper {
@@ -402,7 +493,18 @@ footer {
     }
 
     .contact-container {
-        width: 96%;
+        flex-direction: column-reverse;
+        gap: 0;
+        max-width: 90vw;
+    }
+
+    .contact-map {
+        margin-top: 20px;
+    }
+
+    .contact-form {
+        width: 100%;
+        height: 50vh;
     }
 
     .contact-image-column {
@@ -477,4 +579,72 @@ footer {
 
 .dropdown ul li a:hover {
     background-color: transparent;
+}
+
+.not-found {
+    text-align: center;
+}
+
+.not-found img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .not-found img {
+        max-width: 80%;
+    }
+}
+
+/* Responsive for characters grid */
+@media (max-width: 1024px) {
+    .personajes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .personajes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estudio page styles */
+.estudio-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #4b0202a9;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.estudio-logo {
+    flex-shrink: 0;
+}
+
+.estudio-logo img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.estudio-text {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .estudio-content {
+        flex-direction: column;
+    }
 }

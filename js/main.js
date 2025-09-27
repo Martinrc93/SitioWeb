@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleMenu() {
         const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
         hamburger.setAttribute('aria-expanded', !isExpanded);
-        nav.classList.toggle('show-nav'); // Usar una clase para mostrar/ocultar
+        document.body.classList.toggle('nav-active'); // Usar una clase en el body para mostrar/ocultar
 
         // Opcional: Cambiar el ícono si usas dos imágenes diferentes
         const iconOpen = hamburger.querySelector('.icon-open');
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('No se encontró el botón de hamburguesa o el menú de navegación.');
     }
 
-    // Cerrar el menú si se hace clic fuera de él
+    // Cerrar el menú si se hace clic fuera de el
     document.addEventListener('click', function(event) {
-        if (nav.classList.contains('show-nav') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
+        if (document.body.classList.contains('nav-active') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
             toggleMenu();
         }
     });
