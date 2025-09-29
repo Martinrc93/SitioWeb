@@ -356,7 +356,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;  
-    gap: 1vw; 
+    gap: 1vw;
 }
 .divisor div a:hover{
     color: red;
@@ -369,6 +369,11 @@ footer {
 .divisor div img{
     width: 400px;
     height: auto; 
+    
+}
+.divisor div img:hover{
+    transform:scale(1.05);
+    transition: 0.5s ease-in-out;
 }
 .divisor div h2 {
     transform: translate(0%,-100%);
@@ -400,10 +405,13 @@ footer {
 }
 
 .card-personajes img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    height: 320px; 
+}
+.card-personajes h3{
+    letter-spacing: 0.2vw;
+    color: #fffb00;
+    text-shadow: 0px 0px 10px rgb(255, 0, 0);
+
 }
 
 .cont-personajes{
@@ -413,8 +421,7 @@ footer {
     flex-direction: column;
 }
 
-/* Diseño Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     .hamburger {
         display: block;
         z-index: 1001; /* Asegura que esté por encima del menú */
@@ -455,6 +462,7 @@ footer {
         margin: 0;
         text-align: center;
         border-bottom: 1px solid transparent; /* Cambiado a transparente */
+        width: 100%; /* Ensure the li takes full width */
     }
 
     header nav ul li a {
@@ -517,6 +525,7 @@ footer {
     }
 
     .dropdown {
+        position: relative; /* Ensure positioning context for the submenu */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -529,9 +538,10 @@ footer {
     .dropdown ul {
         display: none;
         position: static;
-        width: 75%;
-        background-color: transparent;
-        border: none;
+        width: 100%;
+        background-color: #600018;
+        list-style: none;
+        padding: 0;
         margin: 0;
     }
 
@@ -540,7 +550,9 @@ footer {
     }
 
     .dropdown ul li a {
-        padding: 10px;
+        padding: 12px;
+        font-size: 0.9em;
+        color: #ddd;
     }
 }
 
@@ -600,18 +612,6 @@ footer {
 /* Responsive for characters grid */
 @media (max-width: 1024px) {
     .personajes-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .personajes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .personajes-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -647,4 +647,29 @@ footer {
     .estudio-content {
         flex-direction: column;
     }
+    .container-temporadas .item {
+        flex-direction: column-reverse !important;
+    }
+    .item iframe {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    .divisor {
+        flex-direction: column;
+    }
+}
+
+.estudio-wallpaper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 15px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
 }

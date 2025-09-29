@@ -1,42 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger-button');
     const nav = document.getElementById('main-nav');
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownLink = document.querySelector('.dropdown > a');
 
-    // Función para alternar la visibilidad del menú
-    function toggleMenu() {
-        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !isExpanded);
-        document.body.classList.toggle('nav-active'); // Usar una clase en el body para mostrar/ocultar
+    // Toggle main navigation
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.body.classList.toggle('nav-active');
+        });
+    }
 
-        // Opcional: Cambiar el ícono si usas dos imágenes diferentes
-        const iconOpen = hamburger.querySelector('.icon-open');
-        const iconClose = hamburger.querySelector('.icon-close');
-        if (iconOpen && iconClose) {
-            iconOpen.style.display = isExpanded ? 'block' : 'none';
-            iconClose.style.display = isExpanded ? 'none' : 'block';
+    // Handle dropdown functionality
+    if (dropdownLink) {
+        dropdownLink.addEventListener('click', function(e) {
+            // Check if we are in mobile view (hamburger is visible)
+            if (window.getComputedStyle(hamburger).display !== 'none') {
+                // If the submenu is already open, let the link navigate
+                if (dropdown.classList.contains('submenu-active')) {
+                    return;
+                } else {
+                    // If the submenu is closed, prevent navigation and open it
+                    e.preventDefault();
+                    // Close other open submenus if any
+                    document.querySelectorAll('.submenu-active').forEach(item => {
+                        item.classList.remove('submenu-active');
+                    });
+                    dropdown.classList.add('submenu-active');
+                }
+            }
+        });
+    }
+
+    // Close menus when clicking anywhere else on the document
+    document.addEventListener('click', function(e) {
+        // Close nav if it's open and the click is outside the nav
+        if (document.body.classList.contains('nav-active') && !nav.contains(e.target)) {
+            document.body.classList.remove('nav-active');
         }
-    }
 
-    // Evento de clic en el botón de hamburguesa
-    if (hamburger && nav) {
-        hamburger.addEventListener('click', toggleMenu);
-    } else {
-        console.error('No se encontró el botón de hamburguesa o el menú de navegación.');
-    }
-
-    // Cerrar el menú si se hace clic fuera de el
-    document.addEventListener('click', function(event) {
-        if (document.body.classList.contains('nav-active') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
-            toggleMenu();
+        // Close any open submenu if the click is outside the dropdown
+        if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('submenu-active');
         }
     });
-
-    // Inicializar el estado del menú y los íconos
-    if (hamburger) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        const iconOpen = hamburger.querySelector('.icon-open');
-        const iconClose = hamburger.querySelector('.icon-close');
-        if (iconOpen) iconOpen.style.display = 'block';
-        if (iconClose) iconClose.style.display = 'none';
-    }
 });
