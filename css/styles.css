@@ -40,14 +40,11 @@ main{
     padding-top: 10vh;
 }
 
-
-
 .container {
     max-width: 1500px;
     margin: auto;
     padding: auto;
 }
-
 
 .container h1{  
     text-align: center;
@@ -135,36 +132,12 @@ header nav ul li a:hover {
     -webkit-text-stroke: 0px #000000;
     transition: 0.7s ease-in-out;
 }
-/*
-ul li ul{
-  display: none; 
-  position: absolute;
-  top: 100%; 
-  left: 0;
-  background-color: #444;
-  min-width: 200px;
-}
-  */
 
 /* Contenido Principal */
 .hero {
     position: relative;
     text-align: center;
 }
-
-/* .hero-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -150%);
-    z-index: 1;
-} */
-
-/* .hero-logo img {
-    height: 85vh;
-    border: 10px solid white;
-    border-radius: 60%;
-} */
 
 .hero img {
     margin: auto ;
@@ -187,6 +160,12 @@ ul li ul{
     border-radius: 25px;
 }
 
+@media (max-width: 768px) {
+    .content-columns {
+        flex-direction: column;
+    }
+}
+
 .column-text {
     text-align: left;
     
@@ -206,10 +185,6 @@ ul li ul{
     transition: all 0.3s ease-in-out;
 }
 
-/*.column-images img:hover {
-    box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.6);
-}
-*/
 /* Pie de página */
 footer {
     background-color: #400000; /* Color muy oscuro del background general */
@@ -255,6 +230,16 @@ footer {
     color: #FF0000;
 }
 
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        flex-direction: column;
+    }
+
+    .social-icons {
+        margin-top: 15px;
+    }
+}
+
 /* Estilos para el formulario de contacto */
 .contact-container {
     display: flex;
@@ -263,6 +248,18 @@ footer {
     border-radius: 15px;
     padding: 1%;
     width: 1300px;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column-reverse;
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    .contact-column, .contact-map {
+        width: 100%;
+    }
 }
 .contact-map {
     flex-shrink: 0;
@@ -310,6 +307,12 @@ footer {
 }
 .mensaje-area{
     height: 65%;
+}
+
+@media (max-width: 768px) {
+    .mensaje-area {
+        height: 150px;
+    }
 }
 .contact-form button:hover {
     background-color: #ffffff;
@@ -421,178 +424,6 @@ footer {
     flex-direction: column;
 }
 
-@media (max-width: 760px) {
-    .hamburger {
-        display: block;
-        z-index: 1001; /* Asegura que esté por encima del menú */
-    }
-
-    .hamburger .icon-close {
-        display: none;
-    }
-
-    body.nav-active .hamburger .icon-open {
-        display: none;
-    }
-
-    body.nav-active .hamburger .icon-close {
-        display: block;
-    }
-
-    header nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #800020; 
-        border-top: 1px solid #600018; 
-        z-index: 1000;
-    }
-
-    body.nav-active header nav {
-        display: block;
-    }
-
-    header nav ul {
-        flex-direction: column;
-    }
-
-    header nav ul li {
-        margin: 0;
-        text-align: center;
-        border-bottom: 1px solid transparent; /* Cambiado a transparente */
-        width: 100%; /* Ensure the li takes full width */
-    }
-
-    header nav ul li a {
-        display: block;
-        padding: 15px;
-    }
-
-    .content-columns {
-        flex-direction: column;
-        text-align: center;   
-    }
-
-    .footer-content-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .legals, .social-icons {
-        text-align: center;
-    }
-
-    .social-icons {
-        margin-top: 15px;
-    }
-
-    .content-columns {
-        gap: 20px;
-    }
-
-    .social-icons a {
-        margin: 0 15px; /* Aumenta la separación horizontal */
-    }
-
-    .social-icons a i {
-        font-size: 1.8rem; /* 20% más grandes */
-    }
-
-    .contact-container {
-        flex-direction: column-reverse;
-        gap: 0;
-        max-width: 90vw;
-    }
-
-    .contact-map {
-        margin-top: 20px;
-    }
-
-    .contact-form {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .contact-image-column {
-        display: none;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-    }
-
-    .dropdown {
-        position: relative; /* Ensure positioning context for the submenu */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .dropdown > a {
-        width: 100%;
-    }
-
-    .dropdown ul {
-        display: none;
-        position: static;
-        width: 100%;
-        background-color: #600018;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .dropdown.submenu-active ul {
-        display: block;
-    }
-
-    .dropdown ul li a {
-        padding: 12px;
-        font-size: 0.9em;
-        color: #ddd;
-    }
-}
-
-/* Dropdown styles */
-.dropdown {
-    position: relative;
-}
-
-.dropdown ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #400000;
-    border: 1px solid #200000;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 200px;
-}
-
-.dropdown:hover ul {
-    display: block;
-}
-
-.dropdown ul li {
-    margin: 0;
-}
-
-.dropdown ul li a {
-    display: block;
-    padding: 10px;
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.dropdown ul li a:hover {
-    background-color: transparent;
-}
-
 .not-found {
     text-align: center;
 }
@@ -672,4 +503,93 @@ footer {
     width: 100%;
     height: 100%;
     min-height: 450px;
+}
+
+/* Accordion Menu Styles */
+.responsive-only {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #400000;
+    border: 1px solid #200000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+
+.dropdown:hover ul {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .responsive-only {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #800020;
+        border-top: 1px solid #600018;
+    }
+
+    body.nav-active header nav {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        text-align: center;
+        border-bottom: 1px solid #600018;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 15px;
+    }
+
+    .dropdown ul {
+        display: none;
+        background-color: #600018;
+        padding: 0;
+        position: static;
+        width: 100%;
+    }
+    .dropdown:hover ul {
+        display: none;
+    }
+
+    .dropdown.submenu-active > ul {
+        display: block;
+    }
+
+    .dropdown > a::after {
+        content: ' \25BC'; /* Down arrow */
+        font-size: 0.8em;
+    }
+
+    .dropdown.submenu-active > a::after {
+        content: ' \25B2'; /* Up arrow */
+    }
 }
